@@ -272,7 +272,7 @@ $animation-duration: 15s;
     position: absolute;
     transform-origin: bottom;
     transform-style: preserve-3d;
-    transform: rotateX(90deg) translateY($cube-size/2) translateZ(-$cube-size/2);
+    transform: rotateX(90deg) translateY(calc($cube-size / 2)) translateZ(calc(-1 * $cube-size / 2));
     background-color: rgba(0, 0, 0, 0.1);
   }
 
@@ -286,42 +286,42 @@ $animation-duration: 15s;
 
     // Back face
     &:nth-child(1) {
-      transform: translateZ(-$cube-size/2);
-      animation: shade #{$animation-duration} #{-$animation-duration/2} linear infinite;
+      transform: translateZ(calc(-1 * $cube-size / 2));
+      animation: shade #{$animation-duration} #{calc(-1 * $animation-duration / 2)} linear infinite;
     }
 
     // Front face
     &:nth-child(2) {
-      transform: translateZ($cube-size/2) rotateY(180deg);
+      transform: translateZ(calc($cube-size/2)) rotateY(180deg);
       animation: shade $animation-duration linear infinite;
     }
 
     // Right face
     &:nth-child(3) {
       transform-origin: right;
-      transform: translateZ($cube-size/2) rotateY(270deg);
-      animation: shade #{$animation-duration} #{-$animation-duration/4} linear infinite;
+      transform: translateZ(calc($cube-size/2)) rotateY(270deg);
+      animation: shade #{$animation-duration} #{calc(-1 * $animation-duration / 4)} linear infinite;
     }
 
     // Left face
     &:nth-child(4) {
       transform-origin: left;
-      transform: translateZ($cube-size/2) rotateY(90deg);
-      animation: shade #{$animation-duration} #{-($animation-duration * 3)/4} linear
+      transform: translateZ(calc($cube-size/2)) rotateY(90deg);
+      animation: shade #{$animation-duration} #{calc(-1 * ($animation-duration * 3) / 4)} linear
         infinite;
     }
 
     // Bottom face
     &:nth-child(5) {
       transform-origin: bottom;
-      transform: translateZ($cube-size/2) rotateX(90deg);
+      transform: translateZ(calc($cube-size/2)) rotateX(90deg);
       background-color: rgba(black, 0.7);
     }
 
     // Top face
     &:nth-child(6) {
       transform-origin: top;
-      transform: translateZ($cube-size/2) rotateX(270deg);
+      transform: translateZ(calc($cube-size/2)) rotateX(270deg);
     }
   }
 }
